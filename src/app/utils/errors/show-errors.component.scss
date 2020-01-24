@@ -1,0 +1,12 @@
+.error {
+  position: absolute;
+  box-sizing: border-box;
+  width: 100%;
+  overflow: hidden;
+  color: #f44336;
+  font-size: 75%;
+  margin-top: 10px;
+  p {
+    margin: 0;
+  }
+}

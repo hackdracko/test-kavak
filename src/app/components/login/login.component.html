@@ -1,0 +1,18 @@
+<app-header></app-header>
+
+<div class="login-box">
+  <div class="login-contain">
+    <form [formGroup]="form" (ngSubmit)="login()" class="inputs">
+      <mat-form-field>
+        <input autocomplete="off" type="text" matInput formControlName="user" placeholder="Correo electrónico">
+      </mat-form-field>
+      <mat-form-field>
+        <input autocomplete="off" type="password" matInput formControlName="password" placeholder="Contraseña">
+      </mat-form-field>
+      <div class="button">
+        <button [ngClass]="{'disabled' : form.invalid}" [disabled]="form.invalid" mat-raised-button
+          color="accent">INICIAR SESIÓN</button>
+      </div>
+    </form>
+  </div>
+</div>
