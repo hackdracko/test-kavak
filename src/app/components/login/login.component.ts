@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { emailFormat } from 'src/app/utils/validations/validations';
+import { NgxIndexedDBService } from 'ngx-indexed-db';
 
 @Component({
   selector: 'app-login',
@@ -11,11 +12,15 @@ import { emailFormat } from 'src/app/utils/validations/validations';
 export class LoginComponent implements OnInit {
 
   form: FormGroup;
+  legend: boolean;
 
   constructor(
     private fb: FormBuilder,
+    private dbService: NgxIndexedDBService,
     private router: Router
-  ) { }
+  ) {
+    this.legend = false;
+  }
 
   ngOnInit() {
     this.createForm();
@@ -26,14 +31,34 @@ export class LoginComponent implements OnInit {
    */
   createForm() {
     this.form = this.fb.group({
-      user: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(50), emailFormat]],
-      password: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(18)]]
+      user: ['mail@mail.com', [Validators.required, Validators.minLength(5), Validators.maxLength(50), emailFormat]],
+      password: ['123456', [Validators.required, Validators.minLength(5), Validators.maxLength(18)]]
     });
   }
 
   login() {
+    this.dbService.openCursor('users', (evt) => {
+      let flag = false;
+      const cursor = (<any>evt.target).result;
+      if (cursor) {
+        const value = cursor.value;
+        if (value.email === this.user.value) {
+          flag = true;
+        }
+        cursor.continue();
+      } else {
+          console.log('Entries all displayed.');
+      }
+      if (flag) {
+        this.goTo();
+      } else {
+        this.legend = true;
+      }
+    });
+  }
+
+  goTo() {
     this.router.navigate(['signup']);
-    console.log('TESt');
   }
 
 

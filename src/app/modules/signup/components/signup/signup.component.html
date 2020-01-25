@@ -3,7 +3,7 @@
   <div class="form">
     <mat-card>
       <mat-card-title>SIGNUP</mat-card-title>
-      <form [formGroup]="form" class="inputs">
+      <form [formGroup]="form" (ngSubmit)="send()" class="inputs">
         <mat-form-field>
           <input autocomplete="off" type="text" matInput formControlName="email" placeholder="Correo electrónico">
         </mat-form-field>
@@ -17,7 +17,7 @@
           <input autocomplete="off" type="text" matInput formControlName="lastName" placeholder="Apellido">
         </mat-form-field>
         <mat-form-field>
-          <input autocomplete="off" type="text" matInput formControlName="id" placeholder="Número de identificación">
+          <input autocomplete="off" type="text" matInput formControlName="uuid" placeholder="Número de identificación">
         </mat-form-field>
         <div class="button">
           <button [ngClass]="{'disabled' : form.invalid}" [disabled]="form.invalid" mat-raised-button

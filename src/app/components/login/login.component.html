@@ -9,6 +9,9 @@
       <mat-form-field>
         <input autocomplete="off" type="password" matInput formControlName="password" placeholder="Contraseña">
       </mat-form-field>
+      <div *ngIf="legend" class="legend">
+        El usuario no existe si deseas registrarlo da click <a (click)="goTo()">Aquí</a>
+      </div>
       <div class="button">
         <button [ngClass]="{'disabled' : form.invalid}" [disabled]="form.invalid" mat-raised-button
           color="accent">INICIAR SESIÓN</button>

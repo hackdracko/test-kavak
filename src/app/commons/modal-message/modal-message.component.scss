@@ -1,0 +1,47 @@
+.close-modal {
+    color: red;
+    display: flex;
+    justify-content: flex-end;
+  }
+  
+  .title {
+    color: #12110c;
+    font-family: "Benton Medium", sans-serif;
+    font-size: 28px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 0px 30px;
+  }
+  .title div:first-child {
+    font-family: "Benton Medium", sans-serif;
+  }
+  
+  .imgage-title {
+    margin-right: 2px;
+  }
+  
+  .message {
+    padding-top: 55px;
+    padding-bottom: 80px;
+    color: #000000;
+    font-family: "Benton", sans-serif !important;
+    font-size: 16px;
+    font-weight: 300;
+  }
+  
+  :host ::ng-deep .button-continue {
+    width: 187px;
+    background-color: #49a942;
+    color: white;
+    font-size: 16px;
+    font-family: "Benton", sans-serif;
+    height: 40px;
+    border-radius: 20px;
+  }
+  
+  :host ::ng-deep .buttons {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 100px;
+  }
