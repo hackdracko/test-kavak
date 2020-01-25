@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SessionService } from 'src/app/services/session.service';
 
 @Component({
   selector: 'app-header',
@@ -7,9 +8,27 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  public flag: any;
+  constructor(
+    private sessionService: SessionService
+    ) { }
 
   ngOnInit() {
+    this.getData();
+  }
+
+  getData() {
+    if (this.sessionService.isAuthenticated()) {
+      this.flag = true;
+
+    } else {
+      this.flag = false;
+    }
+  }
+
+  logout() {
+    this.flag = false;
+    this.sessionService.logout();
   }
 
 }

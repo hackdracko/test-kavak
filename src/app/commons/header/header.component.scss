@@ -1,0 +1,9 @@
+:host::ng-deep mat-toolbar-row {
+    font-size: 20px;
+    display: flex;
+    justify-content: space-between !important;
+}
+
+.logout {
+    cursor: pointer;
+}

@@ -3,6 +3,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { emailFormat } from 'src/app/utils/validations/validations';
 import { NgxIndexedDBService } from 'ngx-indexed-db';
+import { SessionService } from 'src/app/services/session.service';
 
 @Component({
   selector: 'app-login',
@@ -17,6 +18,7 @@ export class LoginComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private dbService: NgxIndexedDBService,
+    private sessionService: SessionService,
     private router: Router
   ) {
     this.legend = false;
@@ -43,6 +45,10 @@ export class LoginComponent implements OnInit {
       if (cursor) {
         const value = cursor.value;
         if (value.email === this.user.value) {
+          const sessionObj = {
+            currentUser: value
+          };
+          this.sessionService.setUser(sessionObj);
           flag = true;
         }
         cursor.continue();

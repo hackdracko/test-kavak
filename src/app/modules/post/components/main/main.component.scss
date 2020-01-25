@@ -1,0 +1,11 @@
+.container-post {
+    margin-top: 30px;
+    margin-right: 10px;
+    margin-bottom: 30px;
+    margin-left: 10px;
+    .detail:hover {
+        cursor: pointer;
+        background: #3f51b5;
+        color: white;
+    }
+}

@@ -2,6 +2,7 @@ import { LoginComponent } from './components/login/login.component';
 import { AppComponent } from './app.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
+import { AuthGuard } from './services/auth.guard';
 
 
 const routes: Routes = [
@@ -20,6 +21,7 @@ const routes: Routes = [
   {
     path: 'post',
     component: AppComponent,
+    canActivate: [AuthGuard],
     children: [
       {
         path: '',
@@ -27,17 +29,17 @@ const routes: Routes = [
       }
     ]
   },
-  /*{
-    path: 'signup',
+  {
+    path: 'post-detail/:id',
     component: AppComponent,
+    canActivate: [AuthGuard],
     children: [
       {
         path: '',
-        loadChildren: () => import('./modules/signup/signup.module').then(r => r.SignupModule)
+        loadChildren: () => import('./modules/post-detail/post-detail.module').then(r => r.PostDetailModule)
       }
     ]
-  },*/
-
+  },
   { path: '**', redirectTo: 'login' },
 ];
 

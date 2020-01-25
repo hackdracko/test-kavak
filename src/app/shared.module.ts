@@ -4,6 +4,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ModalMessageComponent } from './commons/modal-message/modal-message.component';
+import { SessionService } from './services/session.service';
+import { AuthGuard } from './services/auth.guard';
 
 @NgModule({
   declarations: [
@@ -24,6 +26,10 @@ import { ModalMessageComponent } from './commons/modal-message/modal-message.com
   ],
   entryComponents: [
     ModalMessageComponent
+  ],
+  providers: [
+    SessionService,
+    AuthGuard
   ]
 })
 export class SharedModule { }
