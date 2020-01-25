@@ -17,6 +17,16 @@ const routes: Routes = [
       }
     ]
   },
+  {
+    path: 'post',
+    component: AppComponent,
+    children: [
+      {
+        path: '',
+        loadChildren: () => import('./modules/post/post.module').then(r => r.PostModule)
+      }
+    ]
+  },
   /*{
     path: 'signup',
     component: AppComponent,

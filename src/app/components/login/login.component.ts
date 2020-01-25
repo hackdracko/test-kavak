@@ -50,15 +50,15 @@ export class LoginComponent implements OnInit {
           console.log('Entries all displayed.');
       }
       if (flag) {
-        this.goTo();
+        this.goTo('post');
       } else {
         this.legend = true;
       }
     });
   }
 
-  goTo() {
-    this.router.navigate(['signup']);
+  goTo(url) {
+    this.router.navigate([url]);
   }
 
 

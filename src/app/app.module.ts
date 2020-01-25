@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SharedModule } from './shared.module';
 import { NgxIndexedDBModule, DBConfig } from 'ngx-indexed-db';
+import { HttpClientModule } from '@angular/common/http';
 
 const dbConfig: DBConfig  = {
   name: 'Kavak',
@@ -33,6 +34,7 @@ const dbConfig: DBConfig  = {
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    HttpClientModule,
     AppRoutingModule,
     SharedModule,
     NgxIndexedDBModule.forRoot(dbConfig)
