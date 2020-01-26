@@ -11,6 +11,7 @@ export class MainComponent implements OnInit {
   public data: any;
   public dataFilter: any;
   private lastChangeTimer: any;
+  public name;
 
   constructor(
     private route: ActivatedRoute,
