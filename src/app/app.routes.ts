@@ -19,6 +19,17 @@ const routes: Routes = [
     ]
   },
   {
+    path: 'profile',
+    component: AppComponent,
+    canActivate: [AuthGuard],
+    children: [
+      {
+        path: '',
+        loadChildren: () => import('./modules/profile/profile.module').then(r => r.ProfileModule)
+      }
+    ]
+  },
+  {
     path: 'post',
     component: AppComponent,
     canActivate: [AuthGuard],

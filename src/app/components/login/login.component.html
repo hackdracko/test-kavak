@@ -2,20 +2,25 @@
 
 <div class="login-box">
   <div class="login-contain">
-    <form [formGroup]="form" (ngSubmit)="login()" class="inputs">
-      <mat-form-field>
-        <input autocomplete="off" type="text" matInput formControlName="user" placeholder="Correo electrónico">
-      </mat-form-field>
-      <mat-form-field>
-        <input autocomplete="off" type="password" matInput formControlName="password" placeholder="Contraseña">
-      </mat-form-field>
-      <div *ngIf="legend" class="legend">
-        El usuario no existe si deseas registrarlo da click <a (click)="goTo('signup')">Aquí</a>
-      </div>
-      <div class="button">
-        <button [ngClass]="{'disabled' : form.invalid}" [disabled]="form.invalid" mat-raised-button
-          color="accent">INICIAR SESIÓN</button>
-      </div>
-    </form>
+    <mat-card>
+      <form [formGroup]="form" (ngSubmit)="login()" class="inputs">
+        <div class="title">Login</div>
+        <mat-form-field>
+          <input autocomplete="off" type="text" matInput formControlName="user" placeholder="Correo electrónico">
+          <app-show-errors [control]="user"></app-show-errors>
+        </mat-form-field>
+        <mat-form-field>
+          <input autocomplete="off" type="password" matInput formControlName="password" placeholder="Contraseña">
+          <app-show-errors [control]="password"></app-show-errors>
+        </mat-form-field>
+        <div *ngIf="legend" class="legend">
+          El usuario no existe si deseas registrarlo da click <a (click)="goTo('signup')">Aquí</a>
+        </div>
+        <div class="button">
+          <button [ngClass]="{'disabled' : form.invalid}" [disabled]="form.invalid" mat-raised-button
+            color="accent">INICIAR SESIÓN</button>
+        </div>
+      </form>
+    </mat-card>
   </div>
 </div>

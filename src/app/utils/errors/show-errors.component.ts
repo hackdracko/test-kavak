@@ -22,13 +22,10 @@ export class ShowErrorsComponent {
     'pattern': (params) => this.message ? this.message : 'El campo no es válido',
     'min': (params) => this.message ? this.message : 'El número mínimo válido es ' + params.min,
     'max': (params) => this.message ? this.message : 'El número máximo válido es ' + params.max,
-    'tokenSize': () => this.message ? this.message : 'La clave dinámica es requerida y debe tener 8 números', // ejemplo de typeCustom
     'email': () => this.messageEmail ? this.messageEmail : 'Introduce un correo válido',
-    'rfcFormat': () => this.message ? this.message : 'El dato no es válido',
-    'rfcFFormat': () => this.message ? this.message : 'El dato no es válido',
-    'curpFormat': () => this.message ? this.message : 'El dato no es válido',
     'emailFormat': () => this.message ? this.message : 'Introduce un correo válido',
-    'differentRepLegal': () => this.message ? this.message : 'El número de celular debe ser diferente al del Rep Legal.'
+    'letterFormat': () => this.message ? this.message : 'Solo deben de ser letras.',
+    'numberFormat': () => this.message ? this.message : 'Solo deben de ser nùmeros.'
   };
 
   @Input()

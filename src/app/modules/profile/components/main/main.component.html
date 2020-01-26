@@ -2,11 +2,15 @@
 <div class="container-signup">
   <div class="form">
     <mat-card>
-      <mat-card-title>SIGNUP</mat-card-title>
+      <mat-card-title>Bienvenido</mat-card-title>
       <form [formGroup]="form" (ngSubmit)="send()" class="inputs">
         <mat-form-field>
           <input autocomplete="off" type="text" matInput formControlName="email" placeholder="Correo electrónico">
           <app-show-errors [control]="email"></app-show-errors>
+        </mat-form-field>
+        <mat-form-field>
+            <input autocomplete="off" type="password" matInput formControlName="password" placeholder="Password">
+            <app-show-errors [control]="password"></app-show-errors>
         </mat-form-field>
         <mat-form-field>
           <input autocomplete="off" type="text" matInput formControlName="phone" placeholder="Teléfono">
@@ -26,11 +30,12 @@
         </mat-form-field>
         <div class="button">
           <button [ngClass]="{'disabled' : form.invalid}" [disabled]="form.invalid" mat-raised-button
-            color="accent">SIGNUP</button>
+            color="accent">Editar Información</button>
         </div>
       </form>
-      <button style="width: 100%; margin-top: 10px" color="primary" mat-raised-button (click)="login()">
-        Regresar
+      <button style="margin-top: 20px; width:100%" mat-raised-button color="primary" (click)="goTo()">Ver Posts</button>
+      <button style="width: 100%; margin-top: 10px" color="warn" mat-raised-button (click)="sendEmails()">
+            Enviar Emails
       </button>
     </mat-card>
   </div>

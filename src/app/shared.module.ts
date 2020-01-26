@@ -6,11 +6,13 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ModalMessageComponent } from './commons/modal-message/modal-message.component';
 import { SessionService } from './services/session.service';
 import { AuthGuard } from './services/auth.guard';
+import { ShowErrorsComponent } from './utils/errors/show-errors.component';
 
 @NgModule({
   declarations: [
     HeaderComponent,
-    ModalMessageComponent
+    ModalMessageComponent,
+    ShowErrorsComponent
   ],
   imports: [
     CommonModule,
@@ -22,7 +24,8 @@ import { AuthGuard } from './services/auth.guard';
     FormsModule,
     ReactiveFormsModule,
     MaterialModule,
-    HeaderComponent
+    HeaderComponent,
+    ShowErrorsComponent
   ],
   entryComponents: [
     ModalMessageComponent

@@ -24,7 +24,7 @@ export function numberFormat(control: AbstractControl) {
   if (control && (control.value !== null || control.value !== undefined)) {
     if (!regex.test(control.value) && control.value !== '') {
       return {
-        emailFormat: true
+        numberFormat: true
       };
     } else {
       return null;
@@ -40,7 +40,7 @@ export function letterFormat(control: AbstractControl) {
   if (control && (control.value !== null || control.value !== undefined)) {
     if (!regex.test(control.value) && control.value !== '') {
       return {
-        emailFormat: true
+        letterFormat: true
       };
     } else {
       return null;

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SessionService } from 'src/app/services/session.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -10,6 +11,7 @@ export class HeaderComponent implements OnInit {
 
   public flag: any;
   constructor(
+    private router: Router,
     private sessionService: SessionService
     ) { }
 
@@ -29,6 +31,10 @@ export class HeaderComponent implements OnInit {
   logout() {
     this.flag = false;
     this.sessionService.logout();
+  }
+
+  profile() {
+    this.router.navigate(['profile']);
   }
 
 }

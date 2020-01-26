@@ -33,8 +33,8 @@ export class LoginComponent implements OnInit {
    */
   createForm() {
     this.form = this.fb.group({
-      user: ['mail@mail.com', [Validators.required, Validators.minLength(5), Validators.maxLength(50), emailFormat]],
-      password: ['123456', [Validators.required, Validators.minLength(5), Validators.maxLength(18)]]
+      user: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(50), emailFormat]],
+      password: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(18)]]
     });
   }
 
@@ -56,7 +56,7 @@ export class LoginComponent implements OnInit {
           console.log('Entries all displayed.');
       }
       if (flag) {
-        this.goTo('post');
+        this.goTo('profile');
       } else {
         this.legend = true;
       }
